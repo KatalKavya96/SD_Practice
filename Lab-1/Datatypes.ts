@@ -79,3 +79,7 @@ let student: Student = {
 };
 
 console.log("Interface Object:", student);
+
+// Type Inference
+// Type Union
+
