@@ -50,8 +50,21 @@ class ConnectionService {
 
     // TODO: Implement logic to save part from Teamcenter to Salesforce
 
+
+    const sfAsset: SFAsset = {
+      id: tcPart.item_id,
+      name: tcPart.item_name,
+      serialNumber: tcPart.serial_no,
+      assetRevision: tcPart.revision,
+      referenceId: tcPart.item_id,
+      status: tcPart.lifecycle_state === 'RELEASED' ? 'Active' : 'Draft',
+    }
+
+    sfApi.createSFAsset(sfAsset)
+
     
   }
 }
 
 const connectionService = new ConnectionService()
+connectionService.savePartToSalesforce('TC-123')
